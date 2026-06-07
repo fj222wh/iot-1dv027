@@ -2,7 +2,15 @@
     {
         "id": "9baac561a3d82aa4",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "MQTT - Diagrams",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "703e5277becb06ef",
+        "type": "tab",
+        "label": "Historical Data",
         "disabled": false,
         "info": "",
         "env": []
@@ -80,32 +88,32 @@
     {
         "id": "c8aef379fe9a0359",
         "type": "ui-page",
-        "name": "Page 1",
+        "name": "Dashboard",
         "ui": "29ac85cbd16cb314",
-        "path": "/page1",
+        "path": "/dashboard",
         "icon": "home",
         "layout": "grid",
         "theme": "51162b57cdb7d101",
         "breakpoints": [
             {
                 "name": "Default",
-                "px": 0,
-                "cols": 3
+                "px": "0",
+                "cols": "3"
             },
             {
                 "name": "Tablet",
-                "px": 576,
-                "cols": 6
+                "px": "576",
+                "cols": "6"
             },
             {
                 "name": "Small Desktop",
-                "px": 768,
-                "cols": 9
+                "px": "768",
+                "cols": "9"
             },
             {
                 "name": "Desktop",
-                "px": 1024,
-                "cols": 12
+                "px": "1024",
+                "cols": "12"
             }
         ],
         "order": 1,
@@ -123,8 +131,58 @@
         "order": 1,
         "showTitle": true,
         "className": "",
-        "visible": true,
-        "disabled": false,
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "4652b02140b7dac6",
+        "type": "ui-page",
+        "name": "Historical data",
+        "ui": "29ac85cbd16cb314",
+        "path": "/history",
+        "icon": "",
+        "layout": "grid",
+        "theme": "51162b57cdb7d101",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": -1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "d28670a1d470a70a",
+        "type": "ui-group",
+        "name": "Historical Data",
+        "page": "4652b02140b7dac6",
+        "width": 6,
+        "height": 1,
+        "order": -1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
         "groupType": "default"
     },
     {
@@ -140,31 +198,14 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 380,
-        "y": 300,
+        "x": 320,
+        "y": 160,
         "wires": [
             [
-                "a2551a4c466c3d17"
+                "a2551a4c466c3d17",
+                "8d640c40c07ecf95"
             ]
         ]
-    },
-    {
-        "id": "ad3399fc183ae93d",
-        "type": "mqtt out",
-        "z": "9baac561a3d82aa4",
-        "name": "Led",
-        "topic": "lnu/iot/fj222wh/led",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "ad86525f95816887",
-        "x": 330,
-        "y": 540,
-        "wires": []
     },
     {
         "id": "ce3b0118472e2711",
@@ -218,8 +259,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
-        "y": 220,
+        "x": 560,
+        "y": 160,
         "wires": []
     },
     {
@@ -280,6 +321,232 @@
         "interpolation": "linear",
         "x": 510,
         "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d640c40c07ecf95",
+        "type": "ui-gauge",
+        "z": "9baac561a3d82aa4",
+        "name": "",
+        "group": "b54b0c5c3f0edbd6",
+        "order": 0,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humiditiy",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "50",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "100",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 520,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb946af0c4322da2",
+        "type": "mqtt out",
+        "z": "9baac561a3d82aa4",
+        "name": "Led",
+        "topic": "lnu/iot/fj222wh/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ad86525f95816887",
+        "x": 650,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "30f09d4e8789e023",
+        "type": "ui-switch",
+        "z": "9baac561a3d82aa4",
+        "name": "LED",
+        "label": "LED",
+        "group": "b54b0c5c3f0edbd6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 510,
+        "y": 320,
+        "wires": [
+            [
+                "cb946af0c4322da2"
+            ]
+        ]
+    },
+    {
+        "id": "528e5b6d87659aac",
+        "type": "ui-text",
+        "z": "703e5277becb06ef",
+        "group": "d28670a1d470a70a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Intro",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "Here you can see the historical data",
+        "valueType": "str",
+        "x": 390,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "27686d55b486958c",
+        "type": "ui-dropdown",
+        "z": "703e5277becb06ef",
+        "group": "d28670a1d470a70a",
+        "name": "",
+        "label": "Select day",
+        "tooltip": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "chips": false,
+        "clearable": false,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "typeIsComboBox": true,
+        "msgTrigger": "onChange",
+        "x": 410,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb75ad728e2a8ad0",
+        "type": "ui-chart",
+        "z": "703e5277becb06ef",
+        "group": "d28670a1d470a70a",
+        "name": "",
+        "label": "chart",
+        "order": 9007199254740991,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 8,
+        "className": "",
+        "interpolation": "linear",
+        "x": 390,
+        "y": 300,
         "wires": [
             []
         ]
