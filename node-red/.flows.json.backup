@@ -8,17 +8,9 @@
         "env": []
     },
     {
-        "id": "703e5277becb06ef",
+        "id": "57116dd7cc0e78f5",
         "type": "tab",
         "label": "Historical Data",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "07bb68f371e7a9e5",
-        "type": "tab",
-        "label": "Flow 1",
         "disabled": false,
         "info": "",
         "env": []
@@ -98,7 +90,7 @@
         "type": "ui-page",
         "name": "Dashboard",
         "ui": "29ac85cbd16cb314",
-        "path": "/dashboard",
+        "path": "/",
         "icon": "home",
         "layout": "grid",
         "theme": "51162b57cdb7d101",
@@ -126,15 +118,15 @@
         ],
         "order": 1,
         "className": "",
-        "visible": "true",
-        "disabled": "false"
+        "visible": true,
+        "disabled": false
     },
     {
         "id": "b54b0c5c3f0edbd6",
         "type": "ui-group",
-        "name": "Group 1",
+        "name": "LED",
         "page": "c8aef379fe9a0359",
-        "width": 6,
+        "width": "14",
         "height": 1,
         "order": 1,
         "showTitle": true,
@@ -174,7 +166,7 @@
                 "cols": "12"
             }
         ],
-        "order": -1,
+        "order": 2,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -184,9 +176,9 @@
         "type": "ui-group",
         "name": "Historical Data",
         "page": "4652b02140b7dac6",
-        "width": 6,
-        "height": 1,
-        "order": -1,
+        "width": "30",
+        "height": "14",
+        "order": 1,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -209,6 +201,34 @@
         "rejectUnauthorized": false
     },
     {
+        "id": "ee51efb0855c75f4",
+        "type": "ui-group",
+        "name": "Humidity",
+        "page": "c8aef379fe9a0359",
+        "width": "14",
+        "height": "1",
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "4fceb5ab6a8b2d7b",
+        "type": "ui-group",
+        "name": "Temperature",
+        "page": "c8aef379fe9a0359",
+        "width": "14",
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
         "id": "6fdb168c0915ab4f",
         "type": "mqtt in",
         "z": "9baac561a3d82aa4",
@@ -221,13 +241,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 320,
-        "y": 380,
+        "x": 120,
+        "y": 480,
         "wires": [
             [
                 "a2551a4c466c3d17",
-                "8d640c40c07ecf95",
-                "4b72d7868e03c1bd"
+                "4b72d7868e03c1bd",
+                "afb27df24d3cc212"
             ]
         ]
     },
@@ -244,13 +264,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 330,
-        "y": 60,
+        "x": 150,
+        "y": 280,
         "wires": [
             [
                 "e831da8d0bad5bc9",
-                "26c6ede0957fe55a",
-                "4b72d7868e03c1bd"
+                "4b72d7868e03c1bd",
+                "3ebda0fa5031b636"
             ]
         ]
     },
@@ -267,8 +287,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 610,
-        "y": 40,
+        "x": 550,
+        "y": 240,
         "wires": []
     },
     {
@@ -284,27 +304,27 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
-        "y": 380,
+        "x": 500,
+        "y": 580,
         "wires": []
     },
     {
         "id": "26c6ede0957fe55a",
         "type": "ui-chart",
         "z": "9baac561a3d82aa4",
-        "group": "b54b0c5c3f0edbd6",
-        "name": "",
+        "group": "4fceb5ab6a8b2d7b",
+        "name": "Temperature Chart",
         "label": "chart",
-        "order": 1,
+        "order": 2,
         "chartType": "line",
         "category": "topic",
         "categoryType": "msg",
         "xAxisLabel": "",
-        "xAxisProperty": null,
+        "xAxisProperty": "",
         "xAxisPropertyType": "timestamp",
         "xAxisType": "time",
         "xAxisFormat": "",
-        "xAxisFormatType": "auto",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
         "xmin": "",
         "xmax": "",
         "yAxisLabel": "",
@@ -318,19 +338,19 @@
         "pointShape": "circle",
         "pointRadius": 4,
         "showLegend": true,
-        "removeOlder": 1,
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "10",
         "colors": [
-            "#0095FF",
-            "#FF0000",
-            "#FF7F0E",
-            "#2CA02C",
-            "#A347E1",
-            "#D62728",
-            "#FF9896",
-            "#9467BD",
-            "#C5B0D5"
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
         ],
         "textColor": [
             "#666666"
@@ -340,12 +360,12 @@
             "#e5e5e5"
         ],
         "gridColorDefault": true,
-        "width": 6,
-        "height": 8,
+        "width": "5",
+        "height": "5",
         "className": "",
         "interpolation": "linear",
-        "x": 550,
-        "y": 80,
+        "x": 530,
+        "y": 280,
         "wires": [
             []
         ]
@@ -355,8 +375,8 @@
         "type": "ui-gauge",
         "z": "9baac561a3d82aa4",
         "name": "",
-        "group": "b54b0c5c3f0edbd6",
-        "order": 0,
+        "group": "ee51efb0855c75f4",
+        "order": 1,
         "value": "payload",
         "valueType": "msg",
         "width": 3,
@@ -366,7 +386,7 @@
         "title": "Humiditiy",
         "alwaysShowTitle": false,
         "floatingTitlePosition": "top-left",
-        "units": "units",
+        "units": "%",
         "icon": "",
         "prefix": "",
         "suffix": "",
@@ -384,7 +404,7 @@
                 "textType": "label"
             },
             {
-                "from": "100",
+                "from": "75",
                 "color": "#ea5353",
                 "text": "",
                 "textType": "label"
@@ -398,8 +418,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 520,
-        "y": 440,
+        "x": 480,
+        "y": 520,
         "wires": [
             []
         ]
@@ -409,7 +429,7 @@
         "type": "mqtt out",
         "z": "9baac561a3d82aa4",
         "name": "Led",
-        "topic": "lnu/iot/fj222wh/led",
+        "topic": "lnu/iot/fj222wh/command/led",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -418,8 +438,8 @@
         "correl": "",
         "expiry": "",
         "broker": "ad86525f95816887",
-        "x": 650,
-        "y": 540,
+        "x": 270,
+        "y": 100,
         "wires": []
     },
     {
@@ -427,11 +447,11 @@
         "type": "ui-switch",
         "z": "9baac561a3d82aa4",
         "name": "LED",
-        "label": "LED",
+        "label": "Control the LED-light",
         "group": "b54b0c5c3f0edbd6",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "order": 1,
+        "width": "3",
+        "height": "1",
         "passthru": false,
         "decouple": false,
         "topic": "topic",
@@ -448,8 +468,8 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 510,
-        "y": 540,
+        "x": 130,
+        "y": 100,
         "wires": [
             [
                 "cb946af0c4322da2"
@@ -468,10 +488,10 @@
         "database": "database",
         "precisionV18FluxV20": "ns",
         "retentionPolicyV18Flux": "",
-        "org": "myorg",
+        "org": "lnu",
         "bucket": "iot",
-        "x": 890,
-        "y": 220,
+        "x": 750,
+        "y": 440,
         "wires": []
     },
     {
@@ -479,15 +499,15 @@
         "type": "function",
         "z": "9baac561a3d82aa4",
         "name": "Format temperature",
-        "func": "if (msg.topic.includes(\"temperature\")) {\n    msg.payload = { temperature: msg.payload };\n} else if (msg.topic.includes(\"humidity\")) {\n    msg.payload = { humidity: msg.payload };\n}\n\nmsg.measurement = \"sensor_data\";\nreturn msg;",
+        "func": "if (msg.topic.includes(\"temperature\")) { msg.payload = { temperature: msg.payload }; } else if (msg.topic.includes(\"humidity\")) { msg.payload = { humidity: msg.payload }; } msg.measurement = \"sensor_data\"; return msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 200,
+        "x": 500,
+        "y": 420,
         "wires": [
             [
                 "a88a3d598604afbd",
@@ -508,76 +528,78 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 840,
-        "y": 120,
+        "x": 740,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "528e5b6d87659aac",
-        "type": "ui-text",
-        "z": "703e5277becb06ef",
-        "group": "d28670a1d470a70a",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "name": "Intro",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "Here you can see the historical data",
-        "valueType": "str",
-        "x": 390,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "27686d55b486958c",
-        "type": "ui-dropdown",
-        "z": "703e5277becb06ef",
-        "group": "d28670a1d470a70a",
-        "name": "",
-        "label": "Select day",
-        "tooltip": "",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "multiple": false,
-        "chips": false,
-        "clearable": false,
-        "options": [
+        "id": "8db6b6f31cc0a885",
+        "type": "ui-gauge",
+        "z": "9baac561a3d82aa4",
+        "name": "Temperature",
+        "group": "4fceb5ab6a8b2d7b",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "C°",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
             {
-                "label": "",
-                "value": "",
-                "type": "str"
+                "from": "-40",
+                "color": "#5096f2",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "10",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "20",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "30",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
             }
         ],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
+        "min": "-40",
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": "4",
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
         "className": "",
-        "typeIsComboBox": true,
-        "msgTrigger": "onChange",
-        "x": 410,
-        "y": 200,
+        "x": 510,
+        "y": 320,
         "wires": [
             []
         ]
     },
     {
-        "id": "eb75ad728e2a8ad0",
+        "id": "d6bf48224ecb3ca5",
         "type": "ui-chart",
-        "z": "703e5277becb06ef",
-        "group": "d28670a1d470a70a",
-        "name": "",
+        "z": "9baac561a3d82aa4",
+        "group": "ee51efb0855c75f4",
+        "name": "Humidity Chart",
         "label": "chart",
-        "order": 9007199254740991,
+        "order": 2,
         "chartType": "line",
         "category": "topic",
         "categoryType": "msg",
@@ -592,17 +614,17 @@
         "yAxisLabel": "",
         "yAxisProperty": "payload",
         "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
+        "ymin": "0",
+        "ymax": "100",
         "bins": 10,
         "action": "append",
         "stackSeries": false,
         "pointShape": "circle",
         "pointRadius": 4,
         "showLegend": true,
-        "removeOlder": 1,
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "10",
         "colors": [
             "#0095ff",
             "#ff0000",
@@ -622,12 +644,140 @@
             "#e5e5e5"
         ],
         "gridColorDefault": true,
-        "width": 6,
-        "height": 8,
+        "width": "5",
+        "height": "5",
         "className": "",
         "interpolation": "linear",
-        "x": 390,
+        "x": 500,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ebda0fa5031b636",
+        "type": "change",
+        "z": "9baac561a3d82aa4",
+        "name": "Round",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$round(payload * 100) / 100",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
         "y": 300,
+        "wires": [
+            [
+                "26c6ede0957fe55a",
+                "8db6b6f31cc0a885"
+            ]
+        ]
+    },
+    {
+        "id": "afb27df24d3cc212",
+        "type": "change",
+        "z": "9baac561a3d82aa4",
+        "name": "Round",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$round(payload * 100) / 100",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 480,
+        "wires": [
+            [
+                "d6bf48224ecb3ca5",
+                "8d640c40c07ecf95"
+            ]
+        ]
+    },
+    {
+        "id": "e4733c950b86c252",
+        "type": "ui-template",
+        "z": "57116dd7cc0e78f5",
+        "group": "",
+        "page": "",
+        "ui": "",
+        "name": "Temperature iFrame",
+        "order": 3,
+        "width": "30",
+        "height": "9",
+        "head": "",
+        "format": "<iframe src=\"http://localhost:3000/d-solo/ad5s92c/iot-dashboard?orgId=1&from=now-30m&to=now&timezone=browser&refresh=1m&panelId=panel-1\" width=\"100%\" height=\"100%\" frameborder=\"0\"></iframe>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 200,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6eb329385626b519",
+        "type": "ui-text",
+        "z": "57116dd7cc0e78f5",
+        "group": "d28670a1d470a70a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Header",
+        "label": "Data for the past 30 min",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "84bd62ec79071de7",
+        "type": "ui-template",
+        "z": "57116dd7cc0e78f5",
+        "group": "d28670a1d470a70a",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 1,
+        "width": "30",
+        "height": "15",
+        "head": "",
+        "format": "<iframe\n    src=\"http://localhost:3000/public-dashboards/73c94576ab7744929273a5d5f173d9e9?&theme=light\"\n    width=\"100%\"\n    height=\"100%\"\n    frameborder=\"0\">\n</iframe>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 180,
+        "y": 200,
         "wires": [
             []
         ]

@@ -28,9 +28,25 @@ services:
       - influxdb-data:/var/lib/influxdb2
     networks:
       - iot-network
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    environment:
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_SECURITY_X_FRAME_OPTIONS=
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    depends_on:
+      - influxdb
+    networks:
+      - iot-network
 
 volumes:
   influxdb-data:
+  grafana-storage:
 
 networks:
   iot-network:
