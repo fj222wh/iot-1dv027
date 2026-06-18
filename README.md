@@ -5,6 +5,7 @@ This project has been created as an assignment in the 1dv027 course at Linneaus 
 ## Project Links
 - **Live Dashboard URL:** [https://cu2058.camp.lnu.se/dashboard/](https://cu2058.camp.lnu.se/dashboard/)
 - **Wokwi Simulation URL:** [https://wokwi.com/projects/463732153061923841](https://wokwi.com/projects/463732153061923841)
+- **Backend Node Red** [https://cu2058.camp.lnu.se/nodered](https://cu2058.camp.lnu.se/nodered/)
 - **Repository URL:** [https://github.com/fj222wh/iot-1dv027](https://github.com/fj222wh/iot-1dv027)
 
 
@@ -72,6 +73,12 @@ flowchart TB
 
 ## Reflection
 **1. Which frontend technologies did you choose, and why?**
+I chose to create the dashboard with Node Red since I wanted to learn a new technology. Since Node Red already has built in nodes for connecting to MQTT and InfluxDB was it quite convenient.
+
 **2. How does handling real-time MQTT data over WebSockets differ from a standard REST API workflow?**
+There is a significant difference between MQTT data compared to the standard REST API workflow. In the REST API workflow the client has frequently make requets to the server to pull data while with the MQTT the publisher can push data to the broker och all subscribers can get the information from that specific topic. This avoids unnecessary pulling since the client does not have to constantly ask the server for new data, instead with MQTT the data is being published and all subscribers will get the new data when something updates. This is better for real-time updates since it is faster and more efficient, and it helps prevent latency that can occur when making requests over HTTP.
+
+
 **3. What was the most challenging integration step (hardware, broker, backend, database, frontend), and how did you solve it?**
+The most challenging in this project was the understand how each part should communicate with the next part of the architecture. I solved it by trying to understand one unit at a time. In the beginning I struggled with understanding MQTT and the Wokwi simulation. 
 
